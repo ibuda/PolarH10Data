@@ -23,13 +23,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="eu.witness.polarh10data.ECGActivity"
-            android:label="@string/ecg_name" android:screenOrientation="portrait">
-        </activity>
-        <activity
             android:name="eu.witness.polarh10data.HRActivity"
             android:label="@string/hr_name" android:screenOrientation="portrait">
         </activity>
+        
+        <provider
+            android:authorities="eu.witness.polarh10data.fileprovider"
+            android:name="android.support.v4.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
     </application>
 
 </manifest>

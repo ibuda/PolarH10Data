@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
+
 public class MainActivity extends AppCompatActivity {
 
     private String TAG = "Polar_MainActivity";
@@ -35,20 +36,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickConnect(View view) {
-        checkBT();
-        DEVICE_ID = sharedPreferences.getString(sharedPrefsKey,"");
-        Log.d(TAG,DEVICE_ID);
-        if(DEVICE_ID.equals("")){
-            showDialog(view);
-        } else {
-            Toast.makeText(this,getString(R.string.connecting) + " " + DEVICE_ID,Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(this, ECGActivity.class);
-            intent.putExtra("id", DEVICE_ID);
-            startActivity(intent);
-        }
-    }
-
-    public void onClickConnect2(View view) {
         checkBT();
         DEVICE_ID = sharedPreferences.getString(sharedPrefsKey,"");
         Log.d(TAG,DEVICE_ID);
@@ -106,4 +93,5 @@ public class MainActivity extends AppCompatActivity {
             this.requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.ACCESS_FINE_LOCATION},1);
         }
     }
+
 }
